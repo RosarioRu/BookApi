@@ -23,7 +23,7 @@ namespace BookApi
         {
             services.AddDbContext<BooksApiContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();//added newtonJson to use PATCH.
 
             
             // services.AddSwaggerGen(c =>
