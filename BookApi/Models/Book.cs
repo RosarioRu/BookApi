@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic; 
+using System;
 
 namespace BookApi.Models
 {
@@ -15,28 +16,37 @@ namespace BookApi.Models
         
         // [Required]
         // public int Rating { get; set; }
-        [Required]
+        // [Required]
         public int SingleRating {get; set;} //hidden/not displayed to user?
 
-        public List<int> AllRatings {get 
-          { 
-            List<int> theRatings = new List<int>();
-            theRatings.Add(SingleRating);
-            return theRatings;
 
-            // return 1+ SingleRating;
-          }
-        }
+        public List<int> theRatings {get;}
 
-        //  public string FullName { get { return $"{FirstName} {LastName}"; } }
+        
 
-        // public string FullName => $"{FirstName} {LastName}";
-
-        // public List<int> AllRatings 
+        // public Book()
         // {
-        //   AllRatings.Add( $"{SingleRating}" );
-        //   get{ return $"{AllRatings}"}; 
+        //   theRatings = new List<int>();
         // }
 
+        // public List<int> AllRatings {get 
+        //   { 
+        //     theRatings.Add(SingleRating);
+        //     return theRatings;
+        //   } 
+        // }
+
+        public List<int> AllRatings () 
+          { 
+            theRatings.Add(SingleRating);
+            return theRatings;
+          } 
+
+          // public void AllRatings () 
+          // { 
+          //   theRatings.Add(SingleRating);
+          // } 
+        
+        
     }
 }
